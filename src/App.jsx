@@ -18,6 +18,7 @@ function App() {
       <GlobalStyles />
       <PageHeader />
       <SideBar />
+      <Banner />
     </GradientBackground>
   )
 }

@@ -5,6 +5,8 @@ import SideBar from "./components/SideBar";
 import Banner from "./components/Banner";
 import bannerBackground from "./assets/backgroundImage.png"
 import Galery from "./components/Galery";
+import pictures from './pictures.json';
+import { useState } from "react";
 
 const GradientBackground = styled.div`
   background: linear-gradient(
@@ -34,23 +36,24 @@ const GaleryContent = styled.section`
 
 
 
-function App() {
+const App = () => {
+  const [galeryPics, setGaleryPics] = useState(pictures)
   return (
     <GradientBackground>
-      <GlobalStyles />
-      <AppContainer>
-        <PageHeader />
-        <MainContainer>
-        <SideBar />
-        <GaleryContent>
-        <Banner
-          text="A galeria de fotos mais completa do universo!"
-          backgroundImage={bannerBackground}
-        />
-        <Galery/>
-        </GaleryContent>
-        </MainContainer>
-      </AppContainer>
+        <GlobalStyles />
+          <AppContainer>
+            <PageHeader />
+              <MainContainer>
+                <SideBar />
+                  <GaleryContent>
+                        <Banner
+                            text="A galeria de fotos mais completa do universo!"
+                            backgroundImage={bannerBackground}
+                        />
+                    <Galery pictures={galeryPics}/>
+                  </GaleryContent>
+              </MainContainer>
+          </AppContainer>
     </GradientBackground>
   );
 }

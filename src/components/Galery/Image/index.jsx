@@ -50,11 +50,14 @@ const Image =({ picture, expand = false, onFavoriteSelect }) => {
     const [isFavorite, setIsFavorite] = useState(picture.favorite);
 
     const handleFavoriteSelect = () => {
-        setIsFavorite(!isFavorite);
-        onFavoriteSelect(picture);
+        const newFavoriteStatus = !isFavorite;
+        setIsFavorite(newFavoriteStatus);
+        if(onFavoriteSelect) {
+            onFavoriteSelect({...picture, favorite: newFavoriteStatus});
+        }
     };
 
-    const favoriteIcon = picture.favorite ? 'public/image/icon/favorite-ativo.png' : 'public/image/icon/favorite-inativo.png';
+    const checkFavoriteIcon = isFavorite ? 'public/image/icon/favorite-ativo.png' : 'public/image/icon/favorite-inativo.png';
     
     return (<Figure $expand={expand} id={`picture-${picture.id}`}>
         <img src={picture.path} alt={picture.alt} />
@@ -63,11 +66,11 @@ const Image =({ picture, expand = false, onFavoriteSelect }) => {
             <Footer>
                 <h4>{picture.font}</h4>
                 <IconButton onClick={handleFavoriteSelect}>
-                    <FavoriteIcon src={favoriteIcon} alt="Favorite icon"/>
-                </IconButton>   
-                    {!expand && <IconButton aria-hidden={expand}>
+                    <FavoriteIcon src={checkFavoriteIcon} alt="Favorite icon"/>
+                </IconButton>
+                <IconButton>
                     <img src="public/image/icon/expand.png" alt="Expand image icon"/>
-                </IconButton>}
+                </IconButton>
             </Footer>
         </figcaption>
     </Figure>)

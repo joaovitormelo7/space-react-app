@@ -40,8 +40,6 @@ const GaleryContent = styled.section`
 
 const App = () => {
   const [galeryPics, setGaleryPics] = useState(pictures)
-  
-
   return (
     <GradientBackground>
         <GlobalStyles />

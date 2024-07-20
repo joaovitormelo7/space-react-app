@@ -64,13 +64,13 @@ const Image =({ picture, expand = false, onFavoriteSelect }) => {
                 <h4>{picture.font}</h4>
                 <IconButton onClick={handleFavoriteSelect}>
                     <FavoriteIcon src={favoriteIcon} alt="Favorite icon"/>
-                </IconButton>
-                <IconButton>
+                </IconButton>   
+                    {!expand && <IconButton aria-hidden={expand}>
                     <img src="public/image/icon/expand.png" alt="Expand image icon"/>
-                </IconButton>
+                </IconButton>}
             </Footer>
         </figcaption>
     </Figure>)
-}
+    }
 
 export default Image

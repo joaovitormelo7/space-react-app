@@ -20,21 +20,24 @@ const ContainerImage = styled.section`
     gap: 24px;
 `
 
-const Galery = ({ pictures = [], handleFavoriteSelect }) => {
-        
-    return (
-        
+
+
+const Galery = ({ pictures = [], handleFavoriteSelect, onSelectPic }) => {
+    return (   
         <>
             <Tags />
             <GaleryContainer>
                 <FluidSection>
                     <Title>Navegue pela galeria</Title>
                     <ContainerImage>        
-                        {pictures.map( picture => <Image 
+                        {pictures.map( picture => 
+                        <Image
                             key={picture.id}
                             picture={picture} 
-                            onFavoriteSelect={handleFavoriteSelect} />)
-                    }
+                            onFavoriteSelect={handleFavoriteSelect}
+                            onZoomSelect={onSelectPic} 
+                             />
+                        )}
                     </ContainerImage>
                 </FluidSection>
                 <Popular />

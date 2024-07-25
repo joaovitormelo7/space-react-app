@@ -40,6 +40,7 @@ const GaleryContent = styled.section`
 
 const App = () => {
   const [galeryPics, setGaleryPics] = useState(pictures)
+  const [selectPic, setSelectPic] = useState(null)
   return (
     <GradientBackground>
         <GlobalStyles />
@@ -52,13 +53,17 @@ const App = () => {
                             text="A galeria de fotos mais completa do universo!"
                             backgroundImage={bannerBackground}
                         />
-                        <Galery 
+                        <Galery
+                            onSelectPic={picture => setSelectPic(picture)}
                             pictures={galeryPics}
                     />
                   </GaleryContent>
               </MainContainer>
           </AppContainer>
-          <ModalZoom />
+          {selectPic && <ModalZoom 
+            picture={selectPic}
+            onClose={() => setSelectPic(null)}          
+          />}
     </GradientBackground>
   )
 }

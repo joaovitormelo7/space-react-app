@@ -44,9 +44,7 @@ const FavoriteIcon = styled.img`
     height: 24px; 
 `;
 
-
-
-const Image =({ picture, expand = false, onFavoriteSelect }) => {
+const Image =({ picture, expand = false, onZoomSelect, onFavoriteSelect }) => {
     const [isFavorite, setIsFavorite] = useState(picture.favorite);
 
     const handleFavoriteSelect = () => {
@@ -68,12 +66,14 @@ const Image =({ picture, expand = false, onFavoriteSelect }) => {
                 <IconButton onClick={handleFavoriteSelect}>
                     <FavoriteIcon src={checkFavoriteIcon} alt="Favorite icon"/>
                 </IconButton>
-                <IconButton>
+                {!expand && ( 
+                     <IconButton aria-hidden={expand} onClick={() => onZoomSelect(picture)}>
                     <img src="public/image/icon/expand.png" alt="Expand image icon"/>
                 </IconButton>
+            )}
             </Footer>
         </figcaption>
     </Figure>)
-    }
+}
 
 export default Image

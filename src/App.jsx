@@ -10,6 +10,7 @@ import { useState } from "react";
 import ModalZoom from "./components/ModalZoom";
 
 
+
 const GradientBackground = styled.div`
   background: linear-gradient(
     174.61deg,

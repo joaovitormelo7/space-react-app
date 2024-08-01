@@ -42,9 +42,9 @@ const Footer = styled.footer`
 const FavoriteIcon = styled.img`
     width: 24px; 
     height: 24px; 
-`;
+`
 
-const Image =({ picture, expand = false, onZoomSelect, onFavoriteSelect }) => {
+const Image =({ picture, expand = false, onZoomSelect, onFavoriteSelect, onAlternateFav }) => {
     const [isFavorite, setIsFavorite] = useState(picture.favorite);
 
     const handleFavoriteSelect = () => {
@@ -55,7 +55,7 @@ const Image =({ picture, expand = false, onZoomSelect, onFavoriteSelect }) => {
         }
     };
 
-    const checkFavoriteIcon = isFavorite ? 'public/image/icon/favorite-ativo.png' : 'public/image/icon/favorite-inativo.png';
+    const checkFavoriteIcon = isFavorite ? 'public/image/icon/favorite-ativo.png' : 'public/image/icon/icons8-estrela-48.png';
     
     return (<Figure $expand={expand} id={`picture-${picture.id}`}>
         <img src={picture.path} alt={picture.alt} />
@@ -63,12 +63,16 @@ const Image =({ picture, expand = false, onZoomSelect, onFavoriteSelect }) => {
             <h3>{picture.title}</h3>
             <Footer>
                 <h4>{picture.font}</h4>
-                <IconButton onClick={handleFavoriteSelect}>
+                    <IconButton onClick={() => {
+                        handleFavoriteSelect();
+                        onAlternateFav(picture);
+                    }}
+                >
                     <FavoriteIcon src={checkFavoriteIcon} alt="Favorite icon"/>
                 </IconButton>
                 {!expand && ( 
                      <IconButton aria-hidden={expand} onClick={() => onZoomSelect(picture)}>
-                    <img src="public/image/icon/expand.png" alt="Expand image icon"/>
+                    <img src="public\image\icon\icons8-expandir-30.png" alt="Expand image icon"/>
                 </IconButton>
             )}
             </Footer>

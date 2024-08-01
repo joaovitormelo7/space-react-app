@@ -30,7 +30,7 @@ const DialogStyle = styled.dialog`
         }
 `
 
-const ModalZoom = ({ picture, onClose }) => {
+const ModalZoom = ({ picture, onClose, onAlternateFav }) => {
     if (!picture) return null;
 
     return (
@@ -38,7 +38,7 @@ const ModalZoom = ({ picture, onClose }) => {
             {picture && <>
                 <Overlay /> 
                 <DialogStyle open={!!picture} onClose={onClose}>
-                    <Image picture={picture} expand={true} />
+                    <Image picture={picture} expand={true} onAlternateFav={onAlternateFav} />
                     <form method="dialog">
                         <IconButton formMethod="dialog">
                             <img src="public\image\icon\close.png" alt="Close icon" />

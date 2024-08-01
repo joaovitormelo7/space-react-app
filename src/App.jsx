@@ -42,6 +42,22 @@ const GaleryContent = styled.section`
 const App = () => {
   const [galeryPics, setGaleryPics] = useState(pictures)
   const [selectPic, setSelectPic] = useState(null)
+
+  const onAlternateFav = (picture) => {
+    if(picture.id === selectPic?.id){
+      setSelectPic({
+        ...selectPic,
+        favorite: !selectPic.favorite
+      })
+    }
+    setGaleryPics(galeryPics.map(galeryPic => {
+      return {
+        ...galeryPic,
+        favorite:  galeryPic.id === picture.id ? !picture.favorite : galeryPic.favorite
+      }
+    }))
+  }
+
   return (
     <GradientBackground>
         <GlobalStyles />
@@ -56,6 +72,7 @@ const App = () => {
                         />
                         <Galery
                             onSelectPic={picture => setSelectPic(picture)}
+                            onAlternateFav={onAlternateFav}
                             pictures={galeryPics}
                     />
                   </GaleryContent>
@@ -63,7 +80,8 @@ const App = () => {
           </AppContainer>
           {selectPic && <ModalZoom 
             picture={selectPic}
-            onClose={() => setSelectPic(null)}          
+            onClose={() => setSelectPic(null)}
+            onAlternateFav={onAlternateFav}          
           />}
     </GradientBackground>
   )

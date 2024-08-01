@@ -22,7 +22,7 @@ const ContainerImage = styled.section`
 
 
 
-const Galery = ({ pictures = [], handleFavoriteSelect, onSelectPic }) => {
+const Galery = ({ pictures = [], handleFavoriteSelect, onSelectPic, onAlternateFav }) => {
     return (   
         <>
             <Tags />
@@ -34,6 +34,7 @@ const Galery = ({ pictures = [], handleFavoriteSelect, onSelectPic }) => {
                         <Image
                             key={picture.id}
                             picture={picture} 
+                            onAlternateFav={onAlternateFav}
                             onFavoriteSelect={handleFavoriteSelect}
                             onZoomSelect={onSelectPic} 
                              />

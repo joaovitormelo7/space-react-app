@@ -22,10 +22,10 @@ const ContainerImage = styled.section`
 
 
 
-const Galery = ({ pictures = [], handleFavoriteSelect, onSelectPic, onAlternateFav }) => {
+const Galery = ({ pictures = [], setTag, handleFavoriteSelect, onSelectPic, onAlternateFav }) => {
     return (   
         <>
-            <Tags />
+            <Tags setTag={setTag} />
             <GaleryContainer>
                 <FluidSection>
                     <Title>Navegue pela galeria</Title>

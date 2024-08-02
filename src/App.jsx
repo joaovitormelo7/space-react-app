@@ -6,8 +6,9 @@ import Banner from "./components/Banner";
 import bannerBackground from "./assets/backgroundImage.png"
 import Galery from "./components/Galery";
 import pictures from './pictures.json';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalZoom from "./components/ModalZoom";
+import Footer from "./components/Footer";
 
 
 
@@ -42,6 +43,20 @@ const GaleryContent = styled.section`
 const App = () => {
   const [galeryPics, setGaleryPics] = useState(pictures)
   const [selectPic, setSelectPic] = useState(null)
+  const [filter, setFilter] = useState('')
+  const [tag, setTag] = useState(0)
+  const [pictureZoom, setPicZoom] = useState (null)
+
+  useEffect(() => {
+    const selectFilterPic = pictures.filter(picture =>{
+      const tagFilter = !tag || picture.tagId === tag;
+      const titleFilter = !filter || picture.title.toLowerCase().includes (filter.toLowerCase())
+      return tagFilter && titleFilter
+
+    })
+    setGaleryPics(selectFilterPic)
+
+  }, [filter, tag])
 
   const onAlternateFav = (picture) => {
     if(picture.id === selectPic?.id){
@@ -62,7 +77,10 @@ const App = () => {
     <GradientBackground>
         <GlobalStyles />
           <AppContainer>
-            <PageHeader />
+            <PageHeader
+              filter={filter}
+              setFilter={setFilter}
+            />
               <MainContainer>
                 <SideBar />
                   <GaleryContent>
@@ -74,6 +92,7 @@ const App = () => {
                             onSelectPic={picture => setSelectPic(picture)}
                             onAlternateFav={onAlternateFav}
                             pictures={galeryPics}
+                            setTag={setTag}
                     />
                   </GaleryContent>
               </MainContainer>
@@ -83,6 +102,7 @@ const App = () => {
             onClose={() => setSelectPic(null)}
             onAlternateFav={onAlternateFav}          
           />}
+          <Footer />
     </GradientBackground>
   )
 }

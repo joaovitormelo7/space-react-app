@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import tags from './tags.json'
 
-const TagTitle = styled.h3`
+const TagTitle = styled.p`
     color: #D9D9D9;
     font-size: 24px;
     margin: 0;
 `
 
-const TagContainer = styled.section`
+const TagContainer = styled.div`
     display: flex;
     align-items: center;
     margin-top: 56px;
@@ -43,13 +43,13 @@ const TagRet =  styled.div`
 
 `;
 
-const Tags = () => {
+const Tags = ({ setTag }) => {
 
     return (
          <TagContainer>
             <TagTitle>Busque por tags:</TagTitle>
             <TagRet>
-                {tags.map(tag => <Tag key={tag.id}>{tag.title}</Tag>)}
+                {tags.map(tag => <Tag key={tag.id} onClick={() => setTag(tag.tag)}>{tag.title}</Tag>)}
             </TagRet>
         </TagContainer>
     )

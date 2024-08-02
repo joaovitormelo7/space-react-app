@@ -30,10 +30,10 @@ const IconSearch = styled.img`
 
 
 
-const FieldPage = (props) => {
+const FieldPage = ({ setFilter }) => {
     return(
     <ContainerStylized>
-        <TextField placeholder="O que você procura" {...props} />
+        <TextField onChange={(event) => { setFilter(event.target.value) }} type="text" placeholder="O que você procura?" />
         <IconSearch src="/image/search.png" alt="search-icon" />
     </ContainerStylized>
     )

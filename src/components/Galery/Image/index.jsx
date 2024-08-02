@@ -55,7 +55,7 @@ const Image =({ picture, expand = false, onZoomSelect, onFavoriteSelect, onAlter
         }
     };
 
-    const checkFavoriteIcon = isFavorite ? '/image/icon/favorite-ativo.png' : 'public/image/icon/icons8-estrela-48.png';
+    const checkFavoriteIcon = isFavorite ? '/image/icon/favorite-ativo.png' : '/image/icon/icons8-estrela-48.png';
     
     return (<Figure $expand={expand} id={`picture-${picture.id}`}>
         <img src={picture.path} alt={picture.alt} />

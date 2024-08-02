@@ -41,7 +41,7 @@ const ModalZoom = ({ picture, onClose, onAlternateFav }) => {
                     <Image picture={picture} expand={true} onAlternateFav={onAlternateFav} />
                     <form method="dialog">
                         <IconButton formMethod="dialog">
-                            <img src="public/image/icon/close.png" alt="Close icon" />
+                            <img src="/image/icon/close.png" alt="Close icon" />
                         </IconButton>       
                     </form>
                 </DialogStyle>

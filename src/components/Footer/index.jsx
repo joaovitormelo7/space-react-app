@@ -48,7 +48,7 @@ function Footer() {
                 </li>
                 <li>
                     <a href='https://www.linkedin.com/in/joaovitormelo7/'>
-                        <ImageIcon src='public\image\icon\linkedin.svg' alt=''/>
+                        <ImageIcon src='public\image\icon\linkedin.svg' alt='LinkedIn'/>
                     </a>
                 </li>
             </ContainerIcon>

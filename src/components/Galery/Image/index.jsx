@@ -72,7 +72,7 @@ const Image =({ picture, expand = false, onZoomSelect, onFavoriteSelect, onAlter
                 </IconButton>
                 {!expand && ( 
                      <IconButton aria-hidden={expand} onClick={() => onZoomSelect(picture)}>
-                    <img src="public\image\icon\icons8-expandir-30.png" alt="Expand image icon"/>
+                    <img src="public/image/icon/icons8-expandir-30.png" alt="Expand image icon"/>
                 </IconButton>
             )}
             </Footer>

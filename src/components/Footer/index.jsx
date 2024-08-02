@@ -43,12 +43,12 @@ function Footer() {
             <ContainerIcon>
                 <li>
                     <a href='https://github.com/joaovitormelo7'>
-                        <ImageIcon src='public\image\icon\Octicons-mark-github.svg' alt='GitHub'/>
+                        <ImageIcon src='public/image/icon/Octicons-mark-github.svg' alt='GitHub'/>
                     </a>
                 </li>
                 <li>
                     <a href='https://www.linkedin.com/in/joaovitormelo7/'>
-                        <ImageIcon src='public\image\icon\linkedin.svg' alt='LinkedIn'/>
+                        <ImageIcon src='public/image/icon/linkedin.svg' alt='LinkedIn'/>
                     </a>
                 </li>
             </ContainerIcon>
